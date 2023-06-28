@@ -4,4 +4,3 @@ def palyndrom(s):
         print(True)
     else:
         print(False)
-
