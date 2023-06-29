@@ -1,0 +1,22 @@
+h2 {
+    background:yellow;
+}
+.ph-1{
+    background:pink;
+    font-size:32pt;
+    color:white;
+}
+.ph-2{
+    border:10px solid yellow;
+    border-radius:5 px;
+    font-size:24pt;
+    margin-bottom:60px;
+    margin-left:60px;
+    padding-bottom:30px;
+    padding-left:20px;
+}
+.ph-3{
+    font-weight:bold;
+    font-size:22px:
+    font-family:Impact;
+}
