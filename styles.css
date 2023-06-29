@@ -21,5 +21,8 @@ h2 {
     font-family:Impact;
 }
 .ph-4{
+    font-style:italic;
     font-size:24pt;
+    text-align:center;
+    text-shadow:1px 1px 2px green;
 }
