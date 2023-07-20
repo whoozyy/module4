@@ -6,7 +6,7 @@
 {% block content %}
 <ul class="nav nav-pills sticky-top bg-white nav-fill">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="/">
+    <a class="nav-link active" aria-current="page" href="{% url 'main-page' %}">
       <span style="font-weight: bold;">Главная</span>
     </a>
   </li>
@@ -15,25 +15,25 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="advertisement-post.html">
+    <a class="nav-link" href="{% url 'ad_post' %}">
       <span style="font-weight: bold;">Разместить объявление</span>
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="register.html">
+    <a class="nav-link" href="{% url 'reg' %}">
       <span style="font-weight: bold;">Регистрация</span>
     </a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="login.html">
-      <span style="font-weight: bold;">Войти</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="profile.html">
-      <span style="font-weight: bold;">Профиль</span>
-    </a>
-  </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'log' %}">
+        <span style="font-weight: bold;">Войти</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'prf' %}">
+        <span style="font-weight: bold;">Профиль</span>
+      </a>
+    </li>
   <li class="nav-item">
     <a class="nav-link" href="#">
       <span style="font-weight: bold;">Выйти</span>
@@ -96,14 +96,14 @@
     <div class="card mb-2" style="max-width: 1200px; margin-top: 20px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <a href="advertisement.html" class="nav-link">
+          <a href="{% url 'adv' %}" class="nav-link">
             <img src="{% static 'img/pic.png' %}" class="img-fluid rounded-start" alt="Card title">
           </a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">
-              <a href="advertisement.html" class="nav-link"><strong>Продаю балкон</strong></a>
+              <a href="{% url 'adv' %}" class="nav-link"><strong>Продаю балкон</strong></a>
             </h5>
             <a href="advertisement.html" class="nav-link">
               <p class="card-text">
@@ -123,16 +123,16 @@
     <div class="card mb-2" style="max-width: 1200px; margin-top: 20px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <a href="advertisement.html" class="nav-link">
+          <a href="{% url 'adv' %}" class="nav-link">
             <img src="{% static 'img/pic.png' %}" class="img-fluid rounded-start" alt="Card title">
           </a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">
-              <a href="advertisement.html" class="nav-link"><strong>Продам гараж</strong></a>
+              <a href="{% url 'adv' %}" class="nav-link"><strong>Продам гараж</strong></a>
             </h5>
-            <a href="advertisement.html" class="nav-link">
+            <a href="{% url 'adv' %}" class="nav-link">
               <p class="card-text">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, nulla eos neque dolorum quis aliquid
                 deleniti molestias, nobis debitis expedita, fugiat ea. Delectus harum quo dolores modi cupiditate in
@@ -150,16 +150,16 @@
     <div class="card mb-2" style="max-width: 1200px; margin-top: 20px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <a href="advertisement.html" class="nav-link">
+          <a href="{% url 'adv' %}" class="nav-link">
             <img src="{% static 'img/pic.png' %}" class="img-fluid rounded-start" alt="Card title">
           </a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">
-              <a href="advertisement.html" class="nav-link"><strong>Куплю баню</strong></a>
+              <a href="{% url 'adv' %}" class="nav-link"><strong>Куплю баню</strong></a>
             </h5>
-            <a href="advertisement.html" class="nav-link">
+            <a href="{% url 'adv' %}" class="nav-link">
               <p class="card-text">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, nulla eos neque dolorum quis aliquid
                 deleniti molestias, nobis debitis expedita, fugiat ea. Delectus harum quo dolores modi cupiditate in
