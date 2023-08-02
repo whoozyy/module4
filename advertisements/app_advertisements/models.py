@@ -9,5 +9,9 @@ class Advertisement(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return 'id=%s,title=%s,price=%s' % (self.id,self.title,self.price)
+
     class Meta:
         db_table="advertisements"
+
