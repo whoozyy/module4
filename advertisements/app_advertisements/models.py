@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 
 class Advertisement(models.Model):
     title = models.CharField("Заголовок",max_length=128)
@@ -10,8 +11,15 @@ class Advertisement(models.Model):
     update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return 'id=%s,title=%s,price=%s' % (self.id,self.title,self.price)
+        return f'Advertisements(id={self.id},title={self.title},price={self.price})'
 
     class Meta:
         db_table="advertisements"
+
+    @admin.display(description="Дата создания")
+    def created_date(self):
+        from django.utils import timezone
+        from django.utils.html import format_html
+
+
 
