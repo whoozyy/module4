@@ -26,7 +26,7 @@ class Advertisement(models.Model):
         return self.created_at.strftime("%d.%m.%Y в %H:%M:%S")
 
     @admin.display(description="Дата обновления")
-    def updated_at(self):
+    def updated_date(self):
         from django.utils import timezone
         from django.utils.html import format_html
         if self.update_at.date() == timezone.now().date():
