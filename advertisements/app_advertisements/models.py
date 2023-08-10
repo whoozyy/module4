@@ -33,3 +33,4 @@ class Advertisement(models.Model):
             updated_time = self.update_at.time().strftime("%H:%M:%S")
             return format_html('<span style="color: orange;font-weight: bold;">Сегодня в {}</span>', updated_time)
         return self.update_at.strftime("%d.%m.%Y в %H:%M:%S")
+
