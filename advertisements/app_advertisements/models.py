@@ -11,7 +11,7 @@ class Advertisement(models.Model):
     update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'Advertisements(id={self.id},title={self.title},price={self.price})'
+        return f'Advertisement(id={self.id},title={self.title},price={self.price})'
 
     class Meta:
         db_table="advertisements"
