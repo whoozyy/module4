@@ -99,15 +99,15 @@
       <div class="row g-0">
         <div class="col-md-4">
           <a href="{% url 'adv' %}" class="nav-link">
-            <img src="{% static 'img/pic.png' %}" class="img-fluid rounded-start" alt="Card title">
+            <img src="{% if adv.image%} {{ adv.image.url}} {% endif %}" class="img-fluid rounded-start" alt="Card title">
           </a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">
-              <a href="{% url 'adv' %}" class="nav-link"><strong>{{ adv.title }}</strong></a>
+              <a href="{%  %}" class="nav-link"><strong>{{ adv.title }}</strong></a>
             </h5>
-            <a href="{% url 'adv' %}" class="nav-link">
+            <a href="{% if adv.image %} {{ adv.image.url }} {% else %} {%static 'img/pic.png' %}" class="nav-link">
               <p class="card-text">
                {{ adv.description }}
               </p>

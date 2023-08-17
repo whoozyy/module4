@@ -38,3 +38,12 @@ class Advertisement(models.Model):
             return format_html('<span style="color: orange;font-weight: bold;">Сегодня в {}</span>', updated_time)
         return self.update_at.strftime("%d.%m.%Y в %H:%M:%S")
 
+    @admin.display(description="Изображение")
+    def image(self):
+        from django.utils.html import format_html
+        if self.image:
+            return format_html(
+                "<img src='{}' style='width: 40px;'>",self.image.url
+            )
+        else:
+            return "Image not found"
