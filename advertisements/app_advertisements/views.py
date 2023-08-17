@@ -20,7 +20,8 @@ def advertisement_post(request):
             advertisement.save()
             url = reverse("main-page")
             return redirect(url)
-    form = AdvertisementForm()
+    else:
+        form = AdvertisementForm()
     context = {"form":form}
     return render(request,"advertisement-post.html",context)
 
