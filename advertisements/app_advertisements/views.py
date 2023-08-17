@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Advertisement
 from .forms import AdvertisementForm
+from django.urls import reverse
 def index(request):
     advertisements= Advertisement.objects.all()
     context={"advertisements":advertisements}
@@ -17,8 +18,8 @@ def advertisement_post(request):
             advertisement=Advertisement(**form.cleaned_data)
             advertisement.user=request.user
             advertisement.save()
-
-
+            url = reverse("main-page")
+            return redirect(url)
     form = AdvertisementForm()
     context = {"form":form}
     return render(request,"advertisement-post.html",context)
