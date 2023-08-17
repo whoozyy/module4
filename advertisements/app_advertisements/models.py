@@ -39,7 +39,7 @@ class Advertisement(models.Model):
         return self.update_at.strftime("%d.%m.%Y в %H:%M:%S")
 
     @admin.display(description="Изображение")
-    def image(self):
+    def image_display(self):
         from django.utils.html import format_html
         if self.image:
             return format_html(
