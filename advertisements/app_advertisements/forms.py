@@ -10,39 +10,21 @@ from django.core.exceptions import ValidationError
 #     auction = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"form-check-input"}),required=False)
 #     image = forms.ImageField(widget=forms.FileInput(attrs={"class":"form-control form-control-lg"}),required=False)
 
+
 class AdvertisementForm(forms.ModelForm):
-    title = forms.CharField(
-        max_length=64,
-        required=True,
-        widget=forms.TextInput(attrs={"class": "form-control form-control-lg"}),
-        validators="?"
-    )
-
-    description = forms.CharField(
-        widget=forms.Textarea(attrs={"class":"form-control form-control-lg"}),
-        required = True
-    )
-
-    price = forms.DecimalField(
-        widget=forms.NumberInput(attrs={"class":"form-control form-control-lg"}),
-        required=True
-    )
-
-    auction = forms.BooleanField(
-        widget=forms.CheckboxInput(attrs={"class": "form-check-input"}),
-        required=False
-    )
-
-    image = forms.ImageField(
-        widget=forms.FileInput(attrs={"class":"form-control form-control-lg"}),
-        required=False
-    )
     class Meta:
         model = Advertisement
-        fields = ['title','description','price','auction','image']
+        fields = ["title", "description", "image","auction","price"]
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
+            'description': forms.Textarea(attrs={'class': 'form-control form-control-lg'}),
+            'price': forms.NumberInput(attrs={'class': 'form-control form-control-lg'}),
+            'auction': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'image': forms.FileInput(attrs={'class': 'form-control form-control-lg'})
+        }
 
-    def clean_title(self):
+    def cleaned_title(self):
         title = self.cleaned_data['title']
-        if title.startwith('?'):
-            raise ValidationError('Заголовок не может начинаться с вопросительного знака')
+        if title.startswith('?'):
+            raise ValidationError("Заголовок не может начинаться с вопросительного знака")
         return title
