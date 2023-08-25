@@ -19,28 +19,30 @@
         <span style="font-weight: bold;">Разместить объявление</span>
       </a>
     </li>
+  {% if request.user.is_authenticated %}
     <li class="nav-item">
+      <a class="nav-link" href="{% url 'profile' %}">
+        <span style="font-weight: bold;">Профиль</span>
+      </a>
+    </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'logout' %}">
+      <span style="font-weight: bold;">Выйти</span>
+    </a>
+  </li>
+{% else %}
+      <li class="nav-item">
       <a class="nav-link" href="{% url 'register' %}">
         <span style="font-weight: bold;">Регистрация</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="login.html">
+      <a class="nav-link" aria-current="page" href="{% url 'login' %}">
         <span style="font-weight: bold;">Войти</span>
       </a>
     </li>
-  <li class="nav-item">
-      <a class="nav-link" href="{% url 'log' %}">
-        <span style="font-weight: bold;">Войти</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'prf' %}">
-        <span style="font-weight: bold;">Профиль</span>
-      </a>
-    </li>
+  {% endif %}
   </ul>
-
   <div class="container" style="margin: 50px;">
     <div class="display-2">
       <span class="badge bg-primary">Объявление пользователя "username"</span>

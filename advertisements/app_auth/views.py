@@ -24,7 +24,12 @@ def login_view(request):
     return render(request,'app_auth/login.html',{"error":"Пользователь не найден"})
 
 def register_view(request):
-    return render(request,"app_auth/register.html")
+    redirect_url = reverse('profile')
+    if request.method == "GET":
+        if request.user.is_authenticated:
+            return redirect(redirect_url)
+        else:
+            return render(request,"app_auth/register.html")
 
 def logout_view(request):
     logout(request)
