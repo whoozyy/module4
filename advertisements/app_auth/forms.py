@@ -10,6 +10,6 @@ class SignUpForm(UserCreationForm):
             'username': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
-            'password1': forms.PasswordInput(attrs={'class': 'form-control form-control-lg'}),
-            'password2': forms.PasswordInput(attrs={'class': 'form-control form-control-lg'})
+            'password1': forms.PasswordInput(),
+            'password2': forms.PasswordInput()
         }

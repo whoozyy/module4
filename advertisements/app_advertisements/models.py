@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 from django.utils.html import format_html
+from django.urls import reverse
 
 User = get_user_model()
 class Advertisement(models.Model):
@@ -44,3 +45,6 @@ class Advertisement(models.Model):
             )
         else:
             return "Image not found"
+
+    def get_absolute_url(self):
+        return reverse("adv",kwargs={"pk":self.pk})
