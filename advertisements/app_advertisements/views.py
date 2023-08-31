@@ -32,5 +32,7 @@ def advertisement_post(request):
     context = {'form':form}
     return render(request,"app_advertisements/advertisement-post.html",context)
 
-def advertisement(request):
-    return render(request,"app_advertisements/advertisement.html")
+def advertisement(request,pk):
+    advertisement = Advertisement.objects.get(id=pk)
+    context={"advertisement":advertisement}
+    return render(request,"app_advertisements/advertisement.html",context)
