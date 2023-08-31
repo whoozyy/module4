@@ -24,15 +24,13 @@ def login_view(request):
     return render(request,'app_auth/login.html',{"error":"Пользователь не найден"})
 
 def register_view(request):
-    redirect_url = reverse('main-page')
+    redirect_url = reverse('profile')
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            login(request, user)
+            user = form.save()
+            user = authenticate(username=user.username, password=request.POST["password"])
+            login(request, user=user)
             return redirect(redirect_url)
     else:
         form = SignUpForm()

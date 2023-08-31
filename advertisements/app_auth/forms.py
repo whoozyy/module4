@@ -1,12 +1,15 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+User = get_user_model()
 class SignUpForm(UserCreationForm):
     class Meta():
         model = User
-        fields = ['username', 'password', 'password2']
+        fields = ['username', 'name','surname','password', 'password2']
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
-            'password': forms.PasswordInput(attrs={'class': 'form-check-input'}),
+            'name': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
+            'surname': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
+            'password': forms.PasswordInput(attrs={'class': 'form-control form-control-lg'}),
             'password2': forms.PasswordInput(attrs={'class': 'form-control form-control-lg'})
         }
